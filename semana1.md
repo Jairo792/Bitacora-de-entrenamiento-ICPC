@@ -9,8 +9,7 @@ Esta semana no pude resolver demasiados problemas, practicamente para todos tuve
 <summary><strong>Resumen del enunciado (spoiler)</strong></summary>
 
 Este ejercicio es similar al que nos explicó Agus la última clase, básicamente (enfrentar *m* cosas contra *n* cosas), en este caso **monstruos vs espadas**.
-
-Se menciona que una espada que tenga poder `x` puede matar a un monstruo de salud `y` **si y solo si** `y ≤ x`.
+Se menciona que una espada que tenga poder $`x`$ puede matar a un monstruo de salud $`y`$ si y solo si $`y ≤ x`$.
 
 Se nos dan tres arreglos: **b, a, c**  
 - `b`: vida de los monstruos  
