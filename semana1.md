@@ -18,7 +18,7 @@ Enunciado:
 
 Este ejercicio es similar al que nos explicó Agus la última clase, básicamente (enfrentar \(m\) cosas contra \(n\) cosas), en este caso **monstruos vs espadas**.
 Se menciona que una espada que tenga poder 
-puede matar a un monstruo de salud \( y \) si y solo si \(y <= x \).
+puede matar a un monstruo de salud $$ y $$ si y solo si \(y <= x \).
 
 Se nos dan tres arreglos: \(a,b,c\)
 - `a`: poder de las espadas  
