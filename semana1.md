@@ -1,3 +1,11 @@
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+ // Make responsive
+ MathJax.Hub.Config({
+ "HTML-CSS": { linebreaks: { automatic: true } },
+ "SVG": { linebreaks: { automatic: true } },
+ });
+</script>
 # Semana 1
 
 Esta semana no pude resolver demasiados problemas, practicamente para todos tuve que usar test case generados y stress testing ya que no se me ocurrían los casos en los que mi solución fallaba.
