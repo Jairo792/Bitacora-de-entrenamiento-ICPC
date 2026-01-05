@@ -26,21 +26,22 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 **Solucion:**
 
-<p>
-<details>
-<summary>Click this to collapse/fold.</summary>
 
-These details <em>remain</em> <strong>hidden</strong> until expanded.
+**Errores que cometi:**
 
-<pre><code>
+Pense que si solamente ordenaba las espadas de mayor a menor, y luego ordenabamos los mounstruos de menor a mayor con su respectivo c_i podriamos solucionar el problema, pero claro esto es un error
+aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,
+por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el poder de nuestras espadas.    
 
- #include <bits/stdc++.h>
+```cpp
+#include <bits/stdc++.h>
 using namespace std;
-#define forr(i,a,b) for(int i=int(a);i<int(b);++i)
-#define forn(i,n) forr(i,0,n)
+#define fore(i,a,b) for(int i=int(a);i<int(b);++i)
+#define forn(i,n) fore(i,0,n)
 #define dforr(i,a,b) for(int i=int(b)-1;i>=int(a);--i)
 #define dforn(i,n) dforr(i,0,n)
-#define fore(e,c) for(const auto &e : (c))
+#define mp        make_pair
+#define pb        push_back
 #define fst first
 #define snd second
 using ll = long long;
@@ -53,90 +54,67 @@ template<class T>void mina(T&x,T const&y){  x=min(x,y);  }
 template<class T>void sort2(T&x,T&y){  if(y<x)swap(x,y);  }
 template<class T>void sort3(T&x,T&y,T&z){  sort2(x,y);sort2(y,z);sort2(x,y);  }
 #define RAYA cerr<<"===============================================\n"
+// Si puedes hacer lo que te p
 
-int main (){
-  cin.tie(0);  
-  cin.sync_with_stdio();
-  int tt;
-  cin >> tt;
-  
-  forn(TT,tt){
-	  
-	 int n, m;
-	 cin >> n >> m;
-	 
-	 multiset<ll>espadas;
-	 
-	 forn(i,n){
-		ll x;
-		cin >> x;
-		espadas.insert(x);
-	 }
-	 
-	 vector<pair<ll,ll>> ms(m);
-	 
-	 forn(i,m){
-		cin >> ms[i].first;
-	 }
-	 
-	 forn(i,m){
-		cin >> ms[i].second;
-	 }
-	 
-	 sort(ms.begin(), ms.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
-		 if(x.second == 0 && y.second != 0)
-		    return false;
-		 else if(x.second != 0 && y.second == 0)
-			return true;
-		 else {
-			return x.first < y.first;
-		 }
-	 });
-	 
-	 int ans = 0;
-	RAYA ;
-	 for(auto it: ms){
-		cerr << it << '\n';
-	 }
-	 RAYA;
-	
-	// return 0;
-	 forn(i,m){
-		auto it = espadas.lower_bound(ms[i].first);
-		if(it == espadas.end())
-		  continue;
-		ans++;
-		 ll v = *it;
-		if(ms[i].second != 0){
-		  espadas.erase(it);
-		  espadas.insert(max(v,ms[i].second));	
-		} else {
-		  espadas.erase(it);
-		} 
-	 }
-	 
-	 cout << ans << '\n';
-	 
-  }
+void solve(){
+    int n,m;
+    cin >> n >> m;
+    vector<ll>swords(n);
+    vector<pair<ll,ll>>monsters(m);
+    forn(i,n){
+        cin >> swords[i];
+    }
+    
+    forn(i,m){
+        ll vida;
+        cin >> vida;
+        monsters[i].first = vida;
+    }
+    
+    forn(i,m){
+        ll recompensa;
+        cin >> recompensa;
+        monsters[i].second = recompensa;
+    }
+    
+    sort(swords.rbegin(), swords.rend());
+    
+    sort(monsters.begin(), monsters.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
+      if(x.second == 0 && y.second != 0)
+          return false;
+      else if(x.second != 0 && y.second == 0)
+        return true;
+      else {
+        return x.first < y.first;
+      }
+    });
+    
+    int j = 0;
+    int ans = 0;
+    
+    forn(i,n){
+        for(;j < m; j++){
+            ll x = monsters[j].first;
+            ll y = monsters[j].second;
+            if (x <= swords[i]){
+                ans++;
+                if(y)
+                    swords[i] = max(swords[i],y);
+            }else{
+                break;
+            }
+        }
+    }
+    
+    cout << ans << '\n';
 }
-</code></pre>
-
-</details>
-</p>
-
-
-
-**Errores que cometi:**
-
-<details>
-<summary><strong>Errores post Solucion </strong></summary>
-Pense que si solamente ordenaba las espadas de mayor a menor, y luego ordenabamos los mounstruos de menor a mayor con su respectivo c_i podriamos solucionar el problema, pero claro esto es un error
-aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,
-por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el poder de nuestras espadas.    
-</details>
-
-
-
+int main (){
+    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    int tt = 1; 
+     cin >> tt; 
+    forn(TT,tt){solve();}
+}
+```
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
  // Make responsive
