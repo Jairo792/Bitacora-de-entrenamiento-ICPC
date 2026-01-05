@@ -28,7 +28,7 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 <details>
 <summary>Spoiler de la solucion </summary>
 
-<pre><code lang="cpp">
+<pre><code lang="language-cpp">
 #include <bits/stdc++.h>
 using namespace std;
 #define forr(i,a,b) for(int i=int(a);i<int(b);++i)
