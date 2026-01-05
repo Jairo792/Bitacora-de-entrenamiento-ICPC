@@ -26,8 +26,9 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 **Solucion:**
 <details>
-<summary><strong>Spoiler de la Solucion </strong></summary>
-```cpp
+<summary>Spoiler de la solucion </summary>
+
+<pre><code lang="cpp">
 #include <bits/stdc++.h>
 using namespace std;
 #define forr(i,a,b) for(int i=int(a);i<int(b);++i)
@@ -91,9 +92,11 @@ int main (){
   int tt;
   cin >> tt;
   
-  forn(TT,tt){  
+  forn(TT,tt){
+	  
 	 int n, m;
 	 cin >> n >> m;
+	 
 	 multiset<ll>espadas;
 	 vector <ll> xd(n);
 	 forn(i,n){
@@ -102,13 +105,17 @@ int main (){
 		xd[i] = x;
 		espadas.insert(x);
 	 }
+	 
 	 vector<pair<ll,ll>> ms(m);
+	 
 	 forn(i,m){
 		cin >> ms[i].first;
 	 }
+	 
 	 forn(i,m){
 		cin >> ms[i].second;
 	 }
+	 
 	 sort(ms.begin(), ms.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
 		 if(x.second == 0 && y.second != 0)
 		    return false;
@@ -118,6 +125,7 @@ int main (){
 			return x.first < y.first;
 		 }
 	 });
+	 
 	 int ans = 0;
 	 cerr << xd << '\n';
 	RAYA ;
@@ -125,6 +133,8 @@ int main (){
 		cerr << it << '\n';
 	 }
 	 RAYA;
+	
+	// return 0;
 	 forn(i,m){
 		auto it = espadas.lower_bound(ms[i].first);
 		if(it == espadas.end())
@@ -138,11 +148,16 @@ int main (){
 		  espadas.erase(it);
 		} 
 	 }
+	 
 	 cout << ans << '\n';
+	 
   }
 }
-```
+</code></pre>
 </details>
+
+
+
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
