@@ -22,18 +22,83 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 **Output:** imprimir el mayor número de monstruos que puedes matar.
 
+
+
+**Solucion:**
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 **Errores que cometi:**
 
 <details>
-<summary><strong>Error de dias post-solucion (spoiler)</strong></summary>
+<summary><strong>Errores post Solucion </strong></summary>
     Pense que si solamente ordenaba las espadas de mayor a menor, y luego ordenabamos los mounstruos de menor a mayor con su respectivo c_i podriamos solucionar el problema, pero claro esto es un error
     aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,        por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el     poder de nuestras espadas.    
 </details>
 
+```cpp
+void solve(){
+    int n,m;
+    cin >> n >> m;
+    vector<ll>swords(n);
+    vector<pair<ll,ll>>monsters(m);
+    forn(i,n){
+        cin >> swords[i];
+    }
+    
+    forn(i,m){
+        ll vida;
+        cin >> vida;
+        monsters[i].first = vida;
+    }
+    
+    forn(i,m){
+        ll recompensa;
+        cin >> recompensa;
+        monsters[i].second = recompensa;
+    }
+    
+    sort(swords.rbegin(), swords.rend());
+    
+    sort(monsters.begin(), monsters.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
+      if(x.second == 0 && y.second != 0)
+          return false;
+      else if(x.second != 0 && y.second == 0)
+        return true;
+      else {
+        return x.first < y.first;
+      }
+    });
+    
+    int j = 0;
+    int ans = 0;
+    
+    forn(i,n){
+        for(;j < m; j++){
+            ll x = monsters[j].first;
+            ll y = monsters[j].second;
+            if (x <= swords[i]){
+                ans++;
+                if(y)
+                    swords[i] = max(swords[i],y);
+            }else{
+                break;
+            }
+        }
+    }
+    
+    cout << ans << '\n';
+}
+int main (){
+    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    int tt = 1; 
+     cin >> tt; 
+    forn(TT,tt){solve();}
+}
+```
 
-Este problema lor resolvi bastante rapido a decir verdad, luego de unos dias probe una nueva solucion que se me ocurrio pero no funciono, lo explicare ahora:
 
-**Solucion:**
+
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
