@@ -26,6 +26,11 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 **Solucion:**
 
+<details> 
+  <summary> Spoiler </summary>
+   - [Solve Dungeon](syllabus) --
+</details>
+
 
 **Errores que cometi:**
 
@@ -34,28 +39,6 @@ aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles 
 por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el poder de nuestras espadas.    
 
 ```cpp
-#include <bits/stdc++.h>
-using namespace std;
-#define fore(i,a,b) for(int i=int(a);i<int(b);++i)
-#define forn(i,n) fore(i,0,n)
-#define dforr(i,a,b) for(int i=int(b)-1;i>=int(a);--i)
-#define dforn(i,n) dforr(i,0,n)
-#define mp        make_pair
-#define pb        push_back
-#define fst first
-#define snd second
-using ll = long long;
-using ull = unsigned long long;
-using ld = long double;
-template<class T>ostream&operator<<(ostream&o,vector<T>const&v){o<<"[ ";for(auto const&x:v)o<<x<<" ";return o<<"]";}
-template<class T,class U>ostream&operator<<(ostream&o,pair<T,U>const&p){return o<<"("<<p.fst<<", "<<p.snd<<")";}
-template<class T>void maxa(T&x,T const&y){  x=max(x,y);  }
-template<class T>void mina(T&x,T const&y){  x=min(x,y);  }
-template<class T>void sort2(T&x,T&y){  if(y<x)swap(x,y);  }
-template<class T>void sort3(T&x,T&y,T&z){  sort2(x,y);sort2(y,z);sort2(x,y);  }
-#define RAYA cerr<<"===============================================\n"
-// Si puedes hacer lo que te p
-
 void solve(){
     int n,m;
     cin >> n >> m;
