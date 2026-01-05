@@ -27,20 +27,15 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 **Solucion:**
 
 <details>
-<summary>Spoiler de la solucion </summary>
-<pre>
-<code lang="language-cpp">
-#include <bits/stdc++.h>
+<summary>Initial draft</summary>
+
+```cpp
+#include <iostream>
 using namespace std;
-int main(){
-int x;
-cin >> x;
-for(int i = 0 ; i < x; i++){
-cout << i << endl;
+int main (){
+ return 0;
 }
-}
-</code>
-</pre>
+``` 
 </details>
 
 
