@@ -59,25 +59,19 @@ int main (){
   forn(TT,tt){
 	 int n, m;
 	 cin >> n >> m;
-	 
 	 multiset<ll>espadas;
-	 
 	 forn(i,n){
 		ll x;
 		cin >> x;
 		espadas.insert(x);
 	 }
-	 
 	 vector<pair<ll,ll>> ms(m);
-	 
 	 forn(i,m){
 		cin >> ms[i].first;
 	 }
-	 
 	 forn(i,m){
 		cin >> ms[i].second;
 	 }
-	 
 	 sort(ms.begin(), ms.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
 		 if(x.second == 0 && y.second != 0)
 		    return false;
@@ -87,14 +81,12 @@ int main (){
 			return x.first < y.first;
 		 }
 	 });
-	 
 	 int ans = 0;
 	RAYA ;
 	 for(auto it: ms){
 		cerr << it << '\n';
 	 }
 	 RAYA;
-	
 	// return 0;
 	 forn(i,m){
 		auto it = espadas.lower_bound(ms[i].first);
@@ -109,7 +101,6 @@ int main (){
 		  espadas.erase(it);
 		} 
 	 }
-	 
 	 cout << ans << '\n';
 	 
   }
