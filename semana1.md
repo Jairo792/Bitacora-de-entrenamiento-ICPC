@@ -25,7 +25,9 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 
 **Solucion:**
-
+<details>
+<summary><strong>Spoiler de la Solucion </strong></summary>
+</details>
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Errores que cometi:**
@@ -34,7 +36,7 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 <summary><strong>Errores post Solucion </strong></summary>
     Pense que si solamente ordenaba las espadas de mayor a menor, y luego ordenabamos los mounstruos de menor a mayor con su respectivo c_i podriamos solucionar el problema, pero claro esto es un error
     aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,        por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el     poder de nuestras espadas.    
-</details>
+
 
 ```cpp
 void solve(){
@@ -96,7 +98,7 @@ int main (){
     forn(TT,tt){solve();}
 }
 ```
-
+</details>
 
 
 
