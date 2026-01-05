@@ -28,7 +28,7 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 <details> 
   <summary> Spoiler </summary>
-   - [Solve Dungeon](syllabus) --
+   - [Solve Dungeon](https://codeforces.com/contest/2164/problem/C) --
 </details>
 
 
