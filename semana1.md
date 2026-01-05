@@ -25,9 +25,9 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 
 **Solucion:**
+
 <details>
 <summary>Spoiler de la solucion </summary>
-
 <pre><code lang="language-cpp">
 #include <bits/stdc++.h>
 using namespace std;
@@ -159,7 +159,7 @@ int main (){
 
 
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Errores que cometi:**
@@ -169,68 +169,6 @@ int main (){
 Pense que si solamente ordenaba las espadas de mayor a menor, y luego ordenabamos los mounstruos de menor a mayor con su respectivo c_i podriamos solucionar el problema, pero claro esto es un error
 aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,
 por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el poder de nuestras espadas.    
-
-
-```cpp
-void solve(){
-    int n,m;
-    cin >> n >> m;
-    vector<ll>swords(n);
-    vector<pair<ll,ll>>monsters(m);
-    forn(i,n){
-        cin >> swords[i];
-    }
-    
-    forn(i,m){
-        ll vida;
-        cin >> vida;
-        monsters[i].first = vida;
-    }
-    
-    forn(i,m){
-        ll recompensa;
-        cin >> recompensa;
-        monsters[i].second = recompensa;
-    }
-    
-    sort(swords.rbegin(), swords.rend());
-    
-    sort(monsters.begin(), monsters.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
-      if(x.second == 0 && y.second != 0)
-          return false;
-      else if(x.second != 0 && y.second == 0)
-        return true;
-      else {
-        return x.first < y.first;
-      }
-    });
-    
-    int j = 0;
-    int ans = 0;
-    
-    forn(i,n){
-        for(;j < m; j++){
-            ll x = monsters[j].first;
-            ll y = monsters[j].second;
-            if (x <= swords[i]){
-                ans++;
-                if(y)
-                    swords[i] = max(swords[i],y);
-            }else{
-                break;
-            }
-        }
-    }
-    
-    cout << ans << '\n';
-}
-int main (){
-    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-    int tt = 1; 
-     cin >> tt; 
-    forn(TT,tt){solve();}
-}
-```
 </details>
 
 
