@@ -27,7 +27,124 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 **Solucion:**
 <details>
 <summary><strong>Spoiler de la Solucion </strong></summary>
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+#define forr(i,a,b) for(int i=int(a);i<int(b);++i)
+#define forn(i,n) forr(i,0,n)
+#define dforr(i,a,b) for(int i=int(b)-1;i>=int(a);--i)
+#define dforn(i,n) dforr(i,0,n)
+#define fore(e,c) for(const auto &e : (c))
+#define fst first
+#define snd second
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+template<class T>ostream&operator<<(ostream&o,vector<T>const&v){o<<"[ ";for(auto const&x:v)o<<x<<" ";return o<<"]";}
+template<class T,class U>ostream&operator<<(ostream&o,pair<T,U>const&p){return o<<"("<<p.fst<<", "<<p.snd<<")";}
+template<class T>void maxa(T&x,T const&y){  x=max(x,y);  }
+template<class T>void mina(T&x,T const&y){  x=min(x,y);  }
+template<class T>void sort2(T&x,T&y){  if(y<x)swap(x,y);  }
+template<class T>void sort3(T&x,T&y,T&z){  sort2(x,y);sort2(y,z);sort2(x,y);  }
+#define RAYA cerr<<"===============================================\n"
+/*
+ #include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int MAXN=2e5+5;
+int n,m;
+struct node{int b,c;}a[MAXN];
+void solve(){
+	cin>>n>>m;
+	multiset<int> S;
+	for(int i=1;i<=n;i++){
+		int x;cin>>x;S.insert(x);
+	}
+	int ans=0;
+	for(int i=1;i<=m;i++) cin>>a[i].b;
+	for(int i=1;i<=m;i++) cin>>a[i].c;
+	sort(a+1,a+m+1,[&](node x,node y){
+		if((x.c==0)^(y.c==0)) return x.c>y.c;
+		return x.b<y.b;
+	});
+	for(int i=1;i<=m;i++){
+		auto it=S.lower_bound(a[i].b);
+		if(it==S.end()) continue;
+		int x=*it;S.erase(it);
+		ans++;
+		if(a[i].c) S.insert(max(a[i].c,x));
+	}
+	cout<<ans<<'\n';
+}
+int main(){
+	// freopen("Otomachi_Una.in","r",stdin);
+	// freopen("Otomachi_Una.out","w",stdout);
+	ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+	int T;cin>>T;
+	while(T--) solve();
+	return 0;
+}
+ **/
+ 
+int main (){
+  ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+  int tt;
+  cin >> tt;
+  
+  forn(TT,tt){  
+	 int n, m;
+	 cin >> n >> m;
+	 multiset<ll>espadas;
+	 vector <ll> xd(n);
+	 forn(i,n){
+		ll x;
+		cin >> x;
+		xd[i] = x;
+		espadas.insert(x);
+	 }
+	 vector<pair<ll,ll>> ms(m);
+	 forn(i,m){
+		cin >> ms[i].first;
+	 }
+	 forn(i,m){
+		cin >> ms[i].second;
+	 }
+	 sort(ms.begin(), ms.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
+		 if(x.second == 0 && y.second != 0)
+		    return false;
+		 else if(x.second != 0 && y.second == 0)
+			return true;
+		 else {
+			return x.first < y.first;
+		 }
+	 });
+	 int ans = 0;
+	 cerr << xd << '\n';
+	RAYA ;
+	 for(auto it: ms){
+		cerr << it << '\n';
+	 }
+	 RAYA;
+	 forn(i,m){
+		auto it = espadas.lower_bound(ms[i].first);
+		if(it == espadas.end())
+		  continue;
+		ans++;
+		 ll v = *it;
+		if(ms[i].second != 0){
+		  espadas.erase(it);
+		  espadas.insert(max(v,ms[i].second));	
+		} else {
+		  espadas.erase(it);
+		} 
+	 }
+	 cout << ans << '\n';
+  }
+}
+```
 </details>
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Errores que cometi:**
