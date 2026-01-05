@@ -33,12 +33,12 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
-	int x;
-	cin >> x;
-	vector<int>v(x);
-	for(int i = 0 ; i < x; i++){
-		cout << i << '\n';
-	}
+int x;
+cin >> x;
+vector<int>v(x);
+for(int i = 0 ; i < x; i++){
+cout << i << '\n';
+}
 }
 </code>
 </pre>
