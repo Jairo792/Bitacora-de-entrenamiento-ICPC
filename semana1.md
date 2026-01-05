@@ -21,24 +21,19 @@ Se nos dan tres arreglos: \(a,b,c\)
 Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $$ x $$ se destruye y, si $$ c_i > 0 $$, obtenemos una nueva espada de poder $$ max(x, c_i) $$.
 
 **Output:** imprimir el mayor número de monstruos que puedes matar.
+
 **Errores que cometi:**
 
 <details>
 <summary><strong>Error de dias post-solucion (spoiler)</strong></summary>
     Pense que si solamente ordenaba las espadas de mayor a menor, y luego ordenabamos los mounstruos de menor a mayor con su respectivo c_i podriamos solucionar el problema, pero claro esto es un error
-    aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,        por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el     poder de nuestras espadas.
-
-    
+    aunque nuestra espada mas fuerte logre acabar con muchos mounstruos mas debiles sin que afecte su poder o incluso incrementano su poder, nada nos grantiza que despues con algun monstruo esta desaparezca y no podamos vencer a los siguientes,        por lo que es mas conveniente matar a cada monstruo con la espada mas pequenia suficientemente poderosa para acabar con el asi mejorando su poder sin necesidad de usar alguna espada mas fuerte, asi siempre maximizaremos todo lo que se pueda el     poder de nuestras espadas.    
 </details>
 
 
 Este problema lor resolvi bastante rapido a decir verdad, luego de unos dias probe una nueva solucion que se me ocurrio pero no funciono, lo explicare ahora:
 
 **Solucion:**
-<details>
-<summary><strong>Resumen del enunciado (spoiler)</strong></summary>
-</details>
-
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
