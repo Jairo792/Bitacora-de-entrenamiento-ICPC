@@ -26,17 +26,103 @@ Después de matar a un monstruo de vida $$ y $$ , la espada $$ a_i $$ de poder $
 
 **Solucion:**
 
+<p>
 <details>
-<summary>Initial draft</summary>
+<summary>Click this to collapse/fold.</summary>
 
-```cpp
-#include <iostream>
+These details <em>remain</em> <strong>hidden</strong> until expanded.
+
+<pre><code>
+
+ #include <bits/stdc++.h>
 using namespace std;
+#define forr(i,a,b) for(int i=int(a);i<int(b);++i)
+#define forn(i,n) forr(i,0,n)
+#define dforr(i,a,b) for(int i=int(b)-1;i>=int(a);--i)
+#define dforn(i,n) dforr(i,0,n)
+#define fore(e,c) for(const auto &e : (c))
+#define fst first
+#define snd second
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+template<class T>ostream&operator<<(ostream&o,vector<T>const&v){o<<"[ ";for(auto const&x:v)o<<x<<" ";return o<<"]";}
+template<class T,class U>ostream&operator<<(ostream&o,pair<T,U>const&p){return o<<"("<<p.fst<<", "<<p.snd<<")";}
+template<class T>void maxa(T&x,T const&y){  x=max(x,y);  }
+template<class T>void mina(T&x,T const&y){  x=min(x,y);  }
+template<class T>void sort2(T&x,T&y){  if(y<x)swap(x,y);  }
+template<class T>void sort3(T&x,T&y,T&z){  sort2(x,y);sort2(y,z);sort2(x,y);  }
+#define RAYA cerr<<"===============================================\n"
+
 int main (){
- return 0;
+  cin.tie(0);  
+  cin.sync_with_stdio();
+  int tt;
+  cin >> tt;
+  
+  forn(TT,tt){
+	  
+	 int n, m;
+	 cin >> n >> m;
+	 
+	 multiset<ll>espadas;
+	 
+	 forn(i,n){
+		ll x;
+		cin >> x;
+		espadas.insert(x);
+	 }
+	 
+	 vector<pair<ll,ll>> ms(m);
+	 
+	 forn(i,m){
+		cin >> ms[i].first;
+	 }
+	 
+	 forn(i,m){
+		cin >> ms[i].second;
+	 }
+	 
+	 sort(ms.begin(), ms.end(),[&](pair<ll,ll>x,pair<ll,ll>y){
+		 if(x.second == 0 && y.second != 0)
+		    return false;
+		 else if(x.second != 0 && y.second == 0)
+			return true;
+		 else {
+			return x.first < y.first;
+		 }
+	 });
+	 
+	 int ans = 0;
+	RAYA ;
+	 for(auto it: ms){
+		cerr << it << '\n';
+	 }
+	 RAYA;
+	
+	// return 0;
+	 forn(i,m){
+		auto it = espadas.lower_bound(ms[i].first);
+		if(it == espadas.end())
+		  continue;
+		ans++;
+		 ll v = *it;
+		if(ms[i].second != 0){
+		  espadas.erase(it);
+		  espadas.insert(max(v,ms[i].second));	
+		} else {
+		  espadas.erase(it);
+		} 
+	 }
+	 
+	 cout << ans << '\n';
+	 
+  }
 }
-``` 
+</code></pre>
+
 </details>
+</p>
 
 
 
